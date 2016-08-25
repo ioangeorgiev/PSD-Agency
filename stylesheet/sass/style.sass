@@ -1,0 +1,535 @@
+@import 'mixins.sass'
+@import 'vars.sass'
+
+/* --- Source Sans Pro font --- */
+
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900'
+
+/* --- Lato font --- */
+
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700,900'
+
+/* --- Universal classes --- */
+
+.f-left
+	float: left
+
+.f-right
+	float: right
+
+.t-left
+	text-align: left
+
+.t-right
+	text-align: right
+
+.center
+	text-align: center
+
+.h-2
+	font: bold 33px 'Lato', sans-serif
+	text-align: center
+	color: $headings
+
+.h-3
+	font: bold 21px 'Lato', sans-serif
+	color: $headings
+
+.h-4
+	font: bold 17px 'Lato', sans-serif
+	text-transform: uppercase
+	letter-spacing: 1px
+	margin-bottom: 15px
+	color: white
+
+.container
+	max-width: 1200px
+	margin: 0 auto
+
+.nav
+	list-style-type: none
+
+.clearfix:before,
+.clearfix:after
+	content: " "
+	display: table
+
+.clearfix:after
+	clear: both
+
+::selection
+	background: $green
+	color: white
+
+.btn-primary
+	text:
+		decoration: none
+		transform: uppercase
+		shadow: 1px 1px 2px #777
+	font:
+		weight: bold
+		size: 14px
+	display: inline-block
+	background: $green
+	padding: 15px 50px
+	border-radius: 2px
+	border-bottom: 2px solid darken($green, 10%)
+	color: white
+	+transition(all ease-in-out 120ms)
+
+	&:hover
+		background: $green-hover
+
+/* --- Scroll to top link --- */
+
+.scroll-top
+	position: fixed
+	bottom: 20px
+	right: 20px
+	background: $scroll-top
+	display: inline-block
+	padding: 11px 13px
+	color: $foot-text
+	border-radius: 3px
+	font-size: 20px
+	display: none
+	+transition(all ease-in-out 120ms)
+
+	&:hover
+		background: lighter($scroll-top, 5%)
+		color: white
+		
+/* -- Reset all margins and paddings --- */
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: -webkit-border-box
+	box-sizing: -moz-border-box
+	box-sizing: border-box
+
+/* --- body styles --- */
+
+body
+	background: white
+	font: normal 15px 'Source Sans Pro', sans-serif
+
+/* --- Header container --- */
+
+.header-cont
+	+selection()
+	background: white
+
+	.header-contacts
+		background: $h-contact
+		width: 100%
+		height: 40px
+		border-bottom: 1px solid #e6e9ed
+
+		.main-contacts
+			line-height: 40px
+
+			.contact-items
+				font:
+					weight: normal
+					size: 12px
+
+				.contact-links
+					display: inline-block
+					text-decoration: none
+					color: $headings
+					padding: 0 10px
+					+transition(all ease-in-out 120ms)
+
+					& span
+						margin-left: 5px
+
+					&:hover
+						color: $green
+
+	.main-nav
+		width: 100%
+		height: 110px
+		border-bottom: 1px solid #e6e9ed
+
+		.logo
+			font:
+				weight: bolder
+				size: 50px
+			color: $headings
+			line-height: 110px
+
+		.nav
+			line-height: 110px
+			margin-left: 80px
+
+			& > .nav-items
+				float: left
+
+				& > .nav-links
+					text:
+						decoration: none
+						transform: uppercase
+					display: inline-block
+					padding: 0 18px
+					font: bold 15px 'Source Sans Pro', sans-serif
+					color: $headings
+					+transition(all ease-in-out 120ms)
+
+					&:hover
+						color: $green
+
+		.search-icon
+			line-height: 110px
+			color: $headings
+			font-size: 14px
+			cursor: pointer
+
+			&:hover
+				color: $green
+
+		.search-box
+			position: absolute
+			top: 130px
+			right: 60px
+			background: $h-contact
+			display: inline-block
+			display: none
+			padding: 15px 20px
+			border-radius: 3px
+			+box-shadow(0px 0px 15px -3px #333)
+			animation-name: search
+			animation-duration: 300ms
+
+			& [type="text"]
+				width: 160px
+				height: 30px
+				padding-left: 7px
+				border: 1px solid #ddd
+				border-radius: 2px 0 0 2px
+				background: #fefefe
+				outline: 0
+				color: #999
+				+box-shadow(0px 1px 4px -1px #ccc inset)
+
+				&:focus
+					+box-shadow(0px 0px 8px 0px $green)
+					border: 1px solid $green
+					background: white
+
+			.search-btn
+				width: 30px
+				height: 30px
+				margin-left: -5px
+				border: 1px solid $green
+				background: $green
+				color: white
+				border-radius: 0 2px 2px 0
+				border-bottom: 2px solid darken($green, 10%)
+				cursor: pointer
+				outline: none
+				
+				&:hover
+					background: darken($green, 4%)
+					border: 1px solid darken($green, 4%)
+					border-bottom: 2px solid darken($green, 10%)
+
+				&:active
+					border-bottom: 2px solid darken($green, 4%) 
+
+/* --- Feature container --- */
+
+.features-cont
+	+selection()
+	background:
+		image: url('../../img/h-background.jpg')
+		position: center
+		size: cover
+
+	.features
+		padding: 300px 0
+		text-align: center
+		width: 950px
+		height: auto
+		margin: 0 auto
+
+		.feature-heading
+			font: bold 60px 'Lato', sans-serif
+			color: white
+			text-transform: uppercase
+
+		.sub-text
+			font: normal 17px 'Lato', sans-serif
+			color: $light-blue
+			margin-top: 15px
+
+		& > a
+			margin-top: 30px
+
+/* --- About container --- */
+
+.about-cont
+	+selection()
+	background: white
+
+	.about
+		padding: 130px 0
+
+		.art-cont
+			width: 650px
+			height: auto
+			margin: 0 auto
+			text-align: center
+
+			& p
+				margin-top: 15px
+				font: normal 18px 'Lato', sans-serif
+				color: $headings
+
+		.about-stuff-cont
+			margin-top: 80px
+
+			.about-stuff
+				padding: 0 25px
+				width: 33.333333333%
+				float: left
+				text-align: left
+
+				.about-stuff-font
+					display: inline-block
+
+					& i
+						float: left
+
+				& p
+					margin-top: 15px
+					font: normal 17px 'Lato', sans-serif
+					color: $headings
+
+/* --- Work container --- */
+
+.work-cont
+	+selection()
+	background: $work-c
+
+	.work
+		padding: 130px 0
+
+		.art-cont
+			text-align: center
+
+			& p
+				font: normal 18px 'Lato', sans-serif
+				color: $headings
+				margin-top: 15px
+
+		.our-work-cont
+			margin: 80px 0
+			display: inline-block
+			width: 100%
+
+			.our-work
+				width: 49%
+				background: white
+				text-align: center
+				+box-shadow(0px 1px 2px #ccc)
+				border-radius: 1px
+
+				& img
+					width: 100%
+
+				.work-headings
+					font: bold 19px 'Lato', sans-serif
+					color: $headings
+					margin-top: 35px
+					margin-bottom: 15px
+
+				.identity
+					font: normal 16px 'Lato', sans-serif
+					margin-bottom: 35px
+					display: inline-block
+					color: $headings
+
+		.our-projects-cont
+
+			.our-projects
+				width: 25%
+				float: left
+				padding: 0 15px
+
+				& img
+					width: 100%
+
+
+		.dots-cont
+			text-align: center
+			padding-top: 40px
+
+			.dots
+				width: 12px
+				height: 12px
+				margin-left: 3px
+				border-radius: 50%
+				background: $headings
+				display: inline-block
+
+			.active
+				background: $green
+
+/* --- Want to work container --- */
+
+.want-to-work-cont
+	+selection()
+	background: white
+
+	.want-to-work
+		padding: 135px 0
+		text-align: center
+
+		& p
+			width: 55%
+			margin: 0 auto
+			font: normal 18px 'Lato', sans-serif
+			color: $headings
+			margin-top: 15px
+
+		& > .btn-primary
+			margin-top: 25px
+
+/* --- Footer container --- */
+
+.footer-cont
+	+selection()
+	background: $foot-c
+
+	.footer
+		padding: 75px 0
+
+		.foot-containers
+			width: 25%
+			float: left
+			padding: 0 15px
+
+			.reen
+				font: bolder 40px 'Source Sans Pro', sans-serif
+				color: white
+
+			& p
+				margin-top: 15px
+				font: normal 15px 'Lato', sans-serif
+				color: $foot-text
+
+			.more-link
+				margin-top: 15px
+				display: inline-block
+				padding-bottom: 2px
+				text-decoration: none
+				border-bottom: 1px solid transparent
+				color: $foot-text
+
+				&:hover
+					border-bottom: 1px solid $foot-text
+
+			.contacts-nav
+				margin-top: 25px
+
+				.contacts-items
+					color: $foot-text
+					display: block
+					margin-top: 10px
+
+			.form
+				margin-top: 25px
+
+				.form-box
+					width: 240px
+					height: 40px
+					background: $bg-input
+					border-radius: 3px
+
+					& [type="email"]
+						width: 161px
+						height: 100%
+						background: transparent
+						border: none
+						outline: 0
+						padding-left: 7px
+						color: $input-placeholder
+
+					& [type="submit"]
+						width: 70px
+						height: 30px
+						margin-top: 5px
+						margin-left: 4px
+						background: $green
+						color: white
+						border: none
+						border-radius: 3px
+						border-bottom: 2px solid darken($green, 10%)
+						font: bold 10px 'Lato', sans-serif
+						text-transform: uppercase
+						outline: none
+						cursor: pointer
+						+transition(all ease-in-out 120ms)
+
+						&:hover
+							background: $green-hover
+
+					::-webkit-input-placeholder
+						color: $input-placeholder
+						font: normal 14px 'Lato', sans-serif
+
+	.copy-cont
+		+selection()
+		background: $copy
+		height: 80px
+
+		.copy
+			color: $foot-text
+
+		.copy-nav, .copy
+			line-height: 80px
+
+			.copy-items
+				float: left
+
+				.copy-links
+					display: inline-block
+					text-decoration: none
+					color: $foot-text
+					padding: 0 15px
+					+transition(all ease-in-out 120ms)
+
+					&:hover
+						color: $green-hover
+
+			& li + li:before
+				content: "."
+				margin-bottom: 50px
+				color: $foot-text
+
+/* --- Animations --- */
+
+@-webkit-keyframes search
+	0%
+		transform: scale(0)
+	75%
+		transform: scale(1.2)
+	100%
+		transform: scale(1)
+
+@-moz-keyframes search
+	0%
+		transform: scale(0)
+	75%
+		transform: scale(1.2)
+	100%
+		transform: scale(1)
+
+@keyframes search
+	0%
+		transform: scale(0)
+	75%
+		transform: scale(1.2)
+	100%
+		transform: scale(1)
